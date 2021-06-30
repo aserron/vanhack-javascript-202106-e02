@@ -9,6 +9,10 @@
   "main": "src/index.mjs",
   "type": "module",
 
+  "scripts": {
+    "test": "mocha -spec ./src/advanced.spec.cjs"
+  },
+
   "dependencies": {
     "@babel/runtime": "^7.3.1",
     "axios": "^0.18.0",
