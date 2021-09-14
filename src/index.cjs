@@ -1,3 +1,11 @@
+const DEBUG_MOD = false;
+
+if(DEBUG_MOD){
+    _log = console.log
+} else {
+    _log = function(){}
+}
+
 const Result      = {"win": 1, "loss": 2, "tie": 3};
 /**
  * Result value and it's associated string name.
@@ -165,7 +173,7 @@ PokerHand.prototype.isStraightFlush = function () {
     
     if (colors.size !== 1) {
         return false
-        console.warn('deben tener el mismo color')
+        // console.warn('deben tener el mismo color')
     }
     
     return true;
@@ -328,7 +336,7 @@ PokerHand.prototype.getHandValue = function () {
     let fn = (this.Calculator.hasOwnProperty(target)) ? this.Calculator[target] : false;
     
     if (!fn) {
-        console.warn("fn for getHandValue NOT FOUND", this.result.name, this.Calculator);
+        // console.warn("fn for getHandValue NOT FOUND", this.result.name, this.Calculator);
         return -1;
     }
     return fn.call(this);
@@ -434,7 +442,7 @@ PokerHand.prototype.Calculator = {
             return acc
         }, 0)
         
-        console.log(`ThreeOfKind:${final} arr=`, valuesArr)
+        _log(`ThreeOfKind:${final} arr=`, valuesArr)
         
         
         return final
@@ -470,7 +478,7 @@ PokerHand.prototype.Calculator = {
             return acc
         }, 0)
         
-        console.log(`DoublePair:${final} arr=`, valuesArr)
+        _log(`DoublePair:${final} arr=`, valuesArr)
         
         
         return final
@@ -499,7 +507,7 @@ PokerHand.prototype.Calculator = {
                 return acc
             }, 0)
         
-        console.log('[OnePair] Value:', final, ' str=', this._str)
+        _log('[OnePair] Value:', final, ' str=', this._str)
         
         return final;
         
@@ -586,8 +594,9 @@ PokerHand.prototype.compareHandValue = function (hand) {
  */
 PokerHand.prototype.compareWith = function (hand) {
     
-    console.log("compareWith ", [this._str, hand._str])
-    console.log()
+    
+    _log("compareWith ", [this._str, hand._str])
+    _log()
     
     if (this.compareHandRank(hand) > 0) return Result.win;
     if (this.compareHandRank(hand) < 0) return Result.loss;
@@ -601,6 +610,7 @@ PokerHand.prototype.compareWith = function (hand) {
     if (value1 < 0) return Result.loss;
     
 }
+
 
 
 module.exports = {

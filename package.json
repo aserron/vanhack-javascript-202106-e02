@@ -1,6 +1,6 @@
 {
   "name": "javascript-test-ex-02",
-  "description": "realname qualified-node-10",
+  "description": "qualified-node-10 code challenge.",
   "author": "Andres Serron <aserron.dev@gmail.com>",
   "license": "MIT",
 
@@ -10,7 +10,7 @@
   "type": "module",
 
   "scripts": {
-    "test": "mocha -spec ./src/advanced.spec.cjs"
+    "test": "mocha --ui bdd -spec ./src/advanced.spec.cjs"
   },
 
   "dependencies": {
